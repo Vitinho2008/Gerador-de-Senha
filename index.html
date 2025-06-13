@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <title>Gerador de Senhas</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- Fundo animado com partículas -->
+  <div id="particles-js"></div>
+
+  <!-- Conteúdo principal -->
+  <div class="container">
+    <h1>Gerador de Senhas</h1>
+
+    <div class="options">
+      <label><input type="checkbox" id="uppercase" checked> Letras Maiúsculas</label>
+      <label><input type="checkbox" id="lowercase" checked> Letras Minúsculas</label>
+      <label><input type="checkbox" id="numbers" checked> Números</label>
+      <label><input type="checkbox" id="symbols"> Caracteres Especiais</label>
+    </div>
+
+    <label for="length">Tamanho da Senha:</label>
+    <input type="number" id="length" min="4" max="50" value="12">
+
+    <button onclick="gerarSenha()">Gerar Senha</button>
+
+    <div class="output">
+      <input type="text" id="senhaGerada" readonly>
+      <button onclick="copiarSenha()">Copiar</button>
+    </div>
+
+    <!-- Botão para mostrar histórico -->
+    <button onclick="alternarHistorico()" style="margin-top: 15px;">Mostrar Histórico</button>
+
+    <!-- Área de histórico -->
+<div id="historicoSenhas" style="display: none; margin-top: 20px;">
+  <h3>Histórico:</h3>
+  <ul id="listaHistorico"></ul>
+  <button id="btnLimparHistorico" onclick="limparHistorico()" style="margin-top: 10px;">Limpar Histórico</button>
+</div>
+
+
+  <!-- Biblioteca Particles.js -->
+  <script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
+  <script>
+    particlesJS("particles-js", {
+      particles: {
+        number: { value: 60, density: { enable: true, value_area: 800 } },
+        color: { value: "#ffffff" },
+        shape: { type: "circle" },
+        opacity: { value: 0.2 },
+        size: { value: 3 },
+        line_linked: {
+          enable: true,
+          distance: 150,
+          color: "#ffffff",
+          opacity: 0.2,
+          width: 1
+        },
+        move: { enable: true, speed: 2 }
+      },
+      interactivity: {
+        detect_on: "canvas",
+        events: {
+          onhover: { enable: true, mode: "repulse" },
+          onclick: { enable: true, mode: "push" }
+        },
+        modes: {
+          repulse: { distance: 100 },
+          push: { particles_nb: 4 }
+        }
+      },
+      retina_detect: true
+    });
+  </script>
+
+  <!-- Script principal -->
+  <script src="script.js"></script>
+
+</body>
+</html>
